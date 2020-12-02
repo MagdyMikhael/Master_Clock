@@ -1,0 +1,446 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.1                     
+******************************************************************************
+>> Linked Wed Nov  4 09:34:46 2020
+
+OUTPUT FILE NAME:   <Clock_V_5.3.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001aa5
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00001bc2  0003e43e  R  X
+  SRAM                  20000000   00008000  0000069e  00007962  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00001bc8   00001bc8    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000018ae   000018ae    r-x .text
+  00001b1c    00001b1c    00000028   00000028    r-- .const
+  00001b48    00001b48    00000080   00000080    r-- .cinit
+20000000    20000000    000006a2   00000000    rw-
+  20000000    20000000    000003fc   00000000    rw- .bss
+  20000400    20000400    00000200   00000000    rw- .stack
+  20000600    20000600    000000a2   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000018ae     
+                  0000026c    00000bf0     CAN_Prog.obj (.text)
+                  00000e5c    000006cc     UART_Prog.obj (.text)
+                  00001528    000001e4     GPT_Prog.obj (.text)
+                  0000170c    000000a0     Common_Func.obj (.text)
+                  000017ac    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00001848    00000080     Systick.obj (.text)
+                  000018c8    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  00001942    00000002     --HOLE-- [fill = 0]
+                  00001944    00000078     PLL.obj (.text)
+                  000019bc    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00001a24    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00001a68    0000003c     main.obj (.text)
+                  00001aa4    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00001ad8    00000014                                   : strcpy.c.obj (.text:strcpy)
+                  00001aec    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00001afa    0000000c                                   : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  00001b06    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00001b12    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001b16    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00001b1c    00000028     
+                  00001b1c    00000010     main.obj (.const:$P$T0$1)
+                  00001b2c    00000010     main.obj (.const:$P$T1$2)
+                  00001b3c    00000008     UART_Prog.obj (.const:.string:Uart_IRQ_list)
+
+.cinit     0    00001b48    00000080     
+                  00001b48    00000058     (.cinit..data.load) [load image, compression = lzss]
+                  00001ba0    0000000c     (__TI_handler_table)
+                  00001bac    00000004     --HOLE-- [fill = 0]
+                  00001bb0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00001bb8    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000000    000003fc     UNINITIALIZED
+                  20000000    000001f4     (.common:arrBack)
+                  200001f4    00000120     (.common:ReceivedData)
+                  20000314    00000050     (.common:Periodic_Task)
+                  20000364    00000014     (.common:Uart0_Receive)
+                  20000378    00000014     (.common:Uart1_Receive)
+                  2000038c    00000014     (.common:Uart3_Receive)
+                  200003a0    00000014     (.common:Uart4_Receive)
+                  200003b4    00000014     (.common:Uart6_Receive)
+                  200003c8    00000014     (.common:Uart7_Receive)
+                  200003dc    0000000c     (.common:Uart2_Receive)
+                  200003e8    0000000c     (.common:Uart5_Receive)
+                  200003f4    00000004     (.common:CallBack)
+                  200003f8    00000004     (.common:CallBackPassed)
+
+.data      0    20000600    000000a2     UNINITIALIZED
+                  20000600    00000041     UART_Prog.obj (.data)
+                  20000641    00000030     UART_Prog.obj (.data:UART)
+                  20000671    00000001     --HOLE--
+                  20000672    00000002     Systick.obj (.data)
+                  20000674    00000014     Common_Func.obj (.data:NVIC_Disable_Rs)
+                  20000688    00000014     Common_Func.obj (.data:NVIC_Enable_Rs)
+                  2000069c    00000006     GPT_Prog.obj (.data:TIMER)
+
+.stack     0    20000400    00000200     UNINITIALIZED
+                  20000400    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000404    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       main.obj                       60     32        0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         72     652       0      
+                                                              
+    .\MCAL\CAN\
+       CAN_Prog.obj                   3056   0         288    
+    +--+------------------------------+------+---------+---------+
+       Total:                         3056   0         288    
+                                                              
+    .\MCAL\GPT\
+       GPT_Prog.obj                   484    0         86     
+    +--+------------------------------+------+---------+---------+
+       Total:                         484    0         86     
+                                                              
+    .\MCAL\PLL\
+       PLL.obj                        120    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         120    0         0      
+                                                              
+    .\MCAL\SysTick\
+       Systick.obj                    128    0         10     
+    +--+------------------------------+------+---------+---------+
+       Total:                         128    0         10     
+                                                              
+    .\MCAL\UART\
+       UART_Prog.obj                  1740   8         757    
+    +--+------------------------------+------+---------+---------+
+       Total:                         1740   8         757    
+                                                              
+    .\UTL\
+       Common_Func.obj                160    0         40     
+    +--+------------------------------+------+---------+---------+
+       Total:                         160    0         40     
+                                                              
+    C:\ti\ccs1010\ccs\tools\compiler\ti-cgt-arm_20.2.1.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156    0         0      
+       memset_t2.asm.obj              122    0         0      
+       copy_decompress_lzss.c.obj     104    0         0      
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       strcpy.c.obj                   20     0         0      
+       copy_decompress_none.c.obj     14     0         0      
+       copy_zero_init.c.obj           12     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         556    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      124       0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   6316   784       1693   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00001bb8 records: 2, size/record: 8, table size: 16
+	.data: load addr=00001b48, load size=00000058 bytes, run addr=20000600, run size=000000a2 bytes, compression=lzss
+	.bss: load addr=00001bb0, load size=00000008 bytes, run addr=20000000, run size=000003fc bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00001ba0 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00001b17  C$$EXIT                       
+00000d19  CAN0_ISR                      
+00000d9d  CAN1_ISR                      
+00000573  CAN_Disable                   
+0000055f  CAN_Enable                    
+0000026d  CAN_Init                      
+00000cdd  CAN_Int_Enable                
+00000a43  CAN_Message_Clear             
+0000097f  CAN_Message_Get               
+00000751  CAN_RX_MSG_SetUp              
+00000cb7  CAN_Read                      
+00000afd  CAN_Retry_Get                 
+00000b21  CAN_Retry_Set                 
+00000b53  CAN_Status_Get                
+000005b5  CAN_TX_MSG_SetUp              
+00000bc7  CAN_Write                     
+200003f4  CallBack                      
+200003f8  CallBackPassed                
+0000170d  DisableInterrupts             
+00001711  EnableInterrupts              
+00001529  GPT_Init                      
+0000175d  NVIC_DisableIRQ               
+20000674  NVIC_Disable_Rs               
+00001715  NVIC_EnableIRQ                
+20000688  NVIC_Enable_Rs                
+00001945  PLL_Enable                    
+20000314  Periodic_Task                 
+20000600  ReceiveComplete0              
+20000608  ReceiveComplete1              
+20000610  ReceiveComplete2              
+20000618  ReceiveComplete3              
+20000620  ReceiveComplete4              
+20000628  ReceiveComplete5              
+20000630  ReceiveComplete6              
+20000638  ReceiveComplete7              
+200001f4  ReceivedData                  
+00001b07  ResetISR                      
+00001871  SysTick_ISR                   
+00001849  SysTick_Init                  
+00001899  Systick_PassFunc              
+2000069c  TIMER                         
+000015e3  TIMER0A_ISR                   
+000015f7  TIMER0B_ISR                   
+0000160b  TIMER1A_ISR                   
+0000161f  TIMER1B_ISR                   
+00001633  TIMER2A_ISR                   
+00001647  TIMER2B_ISR                   
+0000165b  TIMER3A_ISR                   
+0000166f  TIMER3B_ISR                   
+00001683  TIMER4A_ISR                   
+00001697  TIMER4B_ISR                   
+000016ab  TIMER5A_ISR                   
+000016bf  TIMER5B_ISR                   
+20000641  UART                          
+00001205  UART0_ISR                     
+0000125d  UART1_ISR                     
+000012a9  UART2_ISR                     
+000012f9  UART3_ISR                     
+00001359  UART4_ISR                     
+000013b5  UART5_ISR                     
+000013ff  UART6_ISR                     
+00001451  UART7_ISR                     
+00000e5d  UART_Init                     
+00001165  UART_Read_String              
+0000108d  UART_Recieve                  
+0000106b  UART_Transmit                 
+00001121  UART_Write_String             
+20000364  Uart0_Receive                 
+20000378  Uart1_Receive                 
+200003dc  Uart2_Receive                 
+2000038c  Uart3_Receive                 
+200003a0  Uart4_Receive                 
+200003e8  Uart5_Receive                 
+200003b4  Uart6_Receive                 
+200003c8  Uart7_Receive                 
+20000600  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000600  __STACK_TOP                   
+00001bb8  __TI_CINIT_Base               
+00001bc8  __TI_CINIT_Limit              
+00001ba0  __TI_Handler_Table_Base       
+00001bac  __TI_Handler_Table_Limit      
+00001a25  __TI_auto_init_nobinit_nopinit
+000019bd  __TI_decompress_lzss          
+00001aed  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001afb  __TI_zero_init                
+000018c9  __aeabi_memclr                
+000018c9  __aeabi_memclr4               
+000018c9  __aeabi_memclr8               
+000017ad  __aeabi_memcpy                
+000017ad  __aeabi_memcpy4               
+000017ad  __aeabi_memcpy8               
+000018cb  __aeabi_memset                
+000018cb  __aeabi_memset4               
+000018cb  __aeabi_memset8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000400  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00001aa5  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00001b13  _system_pre_init              
+00001b17  abort                         
+20000000  arrBack                       
+ffffffff  binit                         
+20000640  data                          
+00000000  g_pfnVectors                  
+20000672  i                             
+20000604  i0                            
+2000060c  i1                            
+20000614  i2                            
+2000061c  i3                            
+20000624  i4                            
+2000062c  i5                            
+20000634  i6                            
+2000063c  i7                            
+00001a69  main                          
+000017ad  memcpy                        
+000018d1  memset                        
+00001ad9  strcpy                        
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  CAN_Init                      
+0000055f  CAN_Enable                    
+00000573  CAN_Disable                   
+000005b5  CAN_TX_MSG_SetUp              
+00000751  CAN_RX_MSG_SetUp              
+0000097f  CAN_Message_Get               
+00000a43  CAN_Message_Clear             
+00000afd  CAN_Retry_Get                 
+00000b21  CAN_Retry_Set                 
+00000b53  CAN_Status_Get                
+00000bc7  CAN_Write                     
+00000cb7  CAN_Read                      
+00000cdd  CAN_Int_Enable                
+00000d19  CAN0_ISR                      
+00000d9d  CAN1_ISR                      
+00000e5d  UART_Init                     
+0000106b  UART_Transmit                 
+0000108d  UART_Recieve                  
+00001121  UART_Write_String             
+00001165  UART_Read_String              
+00001205  UART0_ISR                     
+0000125d  UART1_ISR                     
+000012a9  UART2_ISR                     
+000012f9  UART3_ISR                     
+00001359  UART4_ISR                     
+000013b5  UART5_ISR                     
+000013ff  UART6_ISR                     
+00001451  UART7_ISR                     
+00001529  GPT_Init                      
+000015e3  TIMER0A_ISR                   
+000015f7  TIMER0B_ISR                   
+0000160b  TIMER1A_ISR                   
+0000161f  TIMER1B_ISR                   
+00001633  TIMER2A_ISR                   
+00001647  TIMER2B_ISR                   
+0000165b  TIMER3A_ISR                   
+0000166f  TIMER3B_ISR                   
+00001683  TIMER4A_ISR                   
+00001697  TIMER4B_ISR                   
+000016ab  TIMER5A_ISR                   
+000016bf  TIMER5B_ISR                   
+0000170d  DisableInterrupts             
+00001711  EnableInterrupts              
+00001715  NVIC_EnableIRQ                
+0000175d  NVIC_DisableIRQ               
+000017ad  __aeabi_memcpy                
+000017ad  __aeabi_memcpy4               
+000017ad  __aeabi_memcpy8               
+000017ad  memcpy                        
+00001849  SysTick_Init                  
+00001871  SysTick_ISR                   
+00001899  Systick_PassFunc              
+000018c9  __aeabi_memclr                
+000018c9  __aeabi_memclr4               
+000018c9  __aeabi_memclr8               
+000018cb  __aeabi_memset                
+000018cb  __aeabi_memset4               
+000018cb  __aeabi_memset8               
+000018d1  memset                        
+00001945  PLL_Enable                    
+000019bd  __TI_decompress_lzss          
+00001a25  __TI_auto_init_nobinit_nopinit
+00001a69  main                          
+00001aa5  _c_int00_noargs               
+00001ad9  strcpy                        
+00001aed  __TI_decompress_none          
+00001afb  __TI_zero_init                
+00001b07  ResetISR                      
+00001b13  _system_pre_init              
+00001b17  C$$EXIT                       
+00001b17  abort                         
+00001ba0  __TI_Handler_Table_Base       
+00001bac  __TI_Handler_Table_Limit      
+00001bb8  __TI_CINIT_Base               
+00001bc8  __TI_CINIT_Limit              
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000000  arrBack                       
+200001f4  ReceivedData                  
+20000314  Periodic_Task                 
+20000364  Uart0_Receive                 
+20000378  Uart1_Receive                 
+2000038c  Uart3_Receive                 
+200003a0  Uart4_Receive                 
+200003b4  Uart6_Receive                 
+200003c8  Uart7_Receive                 
+200003dc  Uart2_Receive                 
+200003e8  Uart5_Receive                 
+200003f4  CallBack                      
+200003f8  CallBackPassed                
+20000400  __stack                       
+20000600  ReceiveComplete0              
+20000600  __STACK_END                   
+20000600  __STACK_TOP                   
+20000604  i0                            
+20000608  ReceiveComplete1              
+2000060c  i1                            
+20000610  ReceiveComplete2              
+20000614  i2                            
+20000618  ReceiveComplete3              
+2000061c  i3                            
+20000620  ReceiveComplete4              
+20000624  i4                            
+20000628  ReceiveComplete5              
+2000062c  i5                            
+20000630  ReceiveComplete6              
+20000634  i6                            
+20000638  ReceiveComplete7              
+2000063c  i7                            
+20000640  data                          
+20000641  UART                          
+20000672  i                             
+20000674  NVIC_Disable_Rs               
+20000688  NVIC_Enable_Rs                
+2000069c  TIMER                         
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[126 symbols]
